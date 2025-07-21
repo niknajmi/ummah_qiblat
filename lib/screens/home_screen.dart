@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'qibla_screen.dart';
+import 'prayer_times_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,17 +15,28 @@ class HomeScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text(
-              'Selamat Datang ke Ummah Qiblat',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          children: [
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const QiblaScreen()),
+                );
+              },
+              icon: const Icon(Icons.explore),
+              label: const Text("Arah Qiblat"),
             ),
-            SizedBox(height: 20),
-            Text('Fungsi akan ditambah:'),
-            Text('- Arah Qiblat'),
-            Text('- Waktu Solat + Notifikasi'),
-            Text('- Hadis & Motivasi Harian'),
-            Text('- Tarikh Hijri + Lokasi'),
+            const SizedBox(height: 20),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const PrayerTimesScreen()),
+                );
+              },
+              icon: const Icon(Icons.access_time),
+              label: const Text("Waktu Solat"),
+            ),
           ],
         ),
       ),
